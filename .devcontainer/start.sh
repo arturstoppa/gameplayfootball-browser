@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+service ssh start 2>/dev/null || true
+
 echo "[start] Wirtualny pulpit 800x600 (mniejszy = szybszy VNC)..."
 Xvfb :1 -screen 0 800x600x16 +extension GLX -ac &
 sleep 2

@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     libboost-all-dev \
     python3 python3-pip python3-dev \
     xvfb x11vnc novnc websockify \
+    openssh-server \
+    && mkdir /var/run/sshd \
     && rm -rf /var/lib/apt/lists/*
 
 # ── pip install gfootball — kompiluje C++ automatycznie ───────────────────────
