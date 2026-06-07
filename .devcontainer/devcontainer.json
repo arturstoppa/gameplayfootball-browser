@@ -11,7 +11,7 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "postStartCommand": "cd /workspaces/gameplayfootball-browser && git pull && bash .devcontainer/start.sh",
+  "postStartCommand": "echo 'supervisord uruchamia grę automatycznie'",
   "remoteEnv": {
     "DISPLAY": ":1",
     "LIBGL_ALWAYS_SOFTWARE": "1",

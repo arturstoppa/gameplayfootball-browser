@@ -9,21 +9,20 @@ RUN apt-get update && apt-get install -y \
     libboost-all-dev \
     python3 python3-pip python3-dev \
     xvfb x11vnc novnc websockify \
-    openssh-server \
-    && mkdir /var/run/sshd \
+    supervisor \
     && rm -rf /var/lib/apt/lists/*
 
 # ── pip install gfootball — kompiluje C++ automatycznie ───────────────────────
 RUN python3 -m pip install --upgrade pip setuptools psutil wheel && \
     python3 -m pip install gfootball
 
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+COPY supervisord.conf /etc/supervisor/conf.d/game.conf
 
 EXPOSE 6080
 
 ENV DISPLAY=:1 \
     LIBGL_ALWAYS_SOFTWARE=1 \
-    GALLIUM_DRIVER=llvmpipe
+    GALLIUM_DRIVER=llvmpipe \
+    ALSOFT_DRIVERS=null
 
-CMD ["/start.sh"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/game.conf"]
