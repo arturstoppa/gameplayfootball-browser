@@ -11,7 +11,7 @@
       "onAutoForward": "openBrowser"
     }
   },
-  "postStartCommand": "bash /workspaces/gameplayfootball-browser/.devcontainer/start.sh",
+  "postStartCommand": "cd /workspaces/gameplayfootball-browser && git pull && bash .devcontainer/start.sh",
   "remoteEnv": {
     "DISPLAY": ":1",
     "LIBGL_ALWAYS_SOFTWARE": "1",
