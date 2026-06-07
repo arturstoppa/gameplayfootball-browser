@@ -19,5 +19,4 @@ echo "  http://localhost:6080/vnc.html"
 echo "════════════════════════════════════════"
 echo ""
 
-cd /opt/gpf/build
-exec ./gameplayfootball
+exec python3 -m gfootball.play_game --action_set=full
